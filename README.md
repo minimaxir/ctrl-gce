@@ -17,7 +17,23 @@ This machine is the minimum  configuration powerful enough to run CTRL without g
 
 Once created, SSH into the instance. (recommended way to do is via the gcloud command created from the SSH dropdown)
 
-1. When you log in, it will prompt you to install GPU drivers; say `Y`.
+1. When you log in, it will prompt you to install GPU drivers; say `y`.
+2. Download the `install_gce.sh` script from this repo via:
+
+3. Run the downloaded script via:
+
+## Using CTRL
+
+Basic usage:
+
+```sh
+sudo python2.7 generation.py \
+--model_dir seqlen256_v1.ckpt
+```
+
+## Notes
+
+* It is recommended to use Google Compute Engine (even if you aren't following this guide) as the model itself is hosted in Google Cloud Storage and thus it's relatively fast to transfer to a VM (>100 Mb/s), and also lowers the cost for Salesforce.
 
 ## Maintainer/Creator
 
