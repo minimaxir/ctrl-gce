@@ -1,5 +1,7 @@
 # Install and Use CTRL on Google Compute Engine
 
+![](demo.png)
+
 Scripts + guides on how to set up a virtual machine on [Google Compute Engine](https://cloud.google.com/compute/) capable of running and use [Salesforce](https://www.salesforce.com)'s very large text-generating model [CTRL](https://github.com/salesforce/ctrl) to generate high-quality text based on conditional parameters.
 
 ## Machine Setup Instructions
