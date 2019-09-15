@@ -1,6 +1,6 @@
 # Install and Use CTRL on Google Compute Engine
 
-A script + guide on how to set up a virtual machine on [Google Compute Engine](https://cloud.google.com/compute/) capable of running and use [Salesforce](https://www.salesforce.com)'s very large text-generating model [CTRL](https://github.com/salesforce/ctrl) to generate high-qualtity text based on conditional parameterS.
+A script + guide on how to set up a virtual machine on [Google Compute Engine](https://cloud.google.com/compute/) capable of running and use [Salesforce](https://www.salesforce.com)'s very large text-generating model [CTRL](https://github.com/salesforce/ctrl) to generate high-qualtity text based on conditional parameters.
 
 ## Machine Setup Instructions
 
@@ -153,6 +153,16 @@ I bought this book because it was recommended by a friend. It is not worth the m
 ```
 a little inside when I saw the first page of this book. It was so beautiful and it made me feel like I could do anything. But then I read on to see what happened next. And there were no more pages. The book just stopped. No epilogue, nothing. Just an abrupt ending. I'm not sure if it's because there's another one coming out or what, but that's how I feel. It's almost as though she got tired of writing about her life in New York City and decided that she'd write something else instead.
 ```
+
+### Command Line Arguments
+
+Unlike other text-generating apps, CTRL has a default `temperature` of 0, meaning the model chooses the best guess when possible (before repetition `penalty` is applied). Some CLI arguments you can change:
+
+* `--generate_num` — Number of tokens to generate (default: 256, can exceed the model window)
+* `--temperature` — Controls model creativity (default: 0, may want to increase to 0.2)
+* `--nucleus` — Controls cutoff for nucleus/top-*p* sampling (default: 0, may want to set to 0.9)
+* `--topk` — Controls cutoff for top-*k* sampling (default: 0)
+* `--penalty` — Repetition penalty factor (default: 1.2)
 
 ## Notes
 
