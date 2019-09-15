@@ -51,7 +51,7 @@ For basic usage, running the command below will load the model and eventually st
 sudo python generation.py --model_dir seqlen256_v1.ckpt/
 ```
 
-While generating, you can specify a KeyboardInterrupt to stop generation (Ctrl+C on macOS)
+While generating, you can specify a KeyboardInterrupt to stop generation (Ctrl+C on macOS). It's also recommended to clear the terminal (CMD+K on macOS) occasionally.
 
 You **must** include a control code with each interactive prompt. You can see how the control codes are used in the original paper, or refer to the following examples:
 
@@ -85,31 +85,75 @@ In addition to teaching them how to build their own programs, it also teaches th
 
 ### Questions
 
-The `Questions` control code allows you to specify a question; CTRL will attempt to follow up from that question. Examples:
+The `Questions` control code allows you to specify a question; CTRL will attempt to follow up from that question (your mileage will vary). Examples:
 
 `Questions Q: Who is the Zodiac Killer?`
 
+```
+A: charles manson 
+```
+
 `Questions Q: What is the last digit of pi?`
+
+```
+A: 0
+```
 
 ### Reddit Subreddits
 
 Each Reddit subreddit has a different control code, see the bottom of the paper for a list. You can optionally specify the Title or the self-post Text body. Examples:
 
-`Legal Title: [FL] My dog is suing me.`
+`Legal Title: [FL] Is it legal to get into legal trouble?`
 
+```
+Text: I was driving home from work and saw a police car pull up behind me. The officer asked me for my license and registration. He then proceeded to ask if i had any drugs in the car. 
+ 
+My question is this: 
+ 
+1. Can you be arrested without probable cause or even being charged with anything at all? 
+ 
+2. If so, what are your chances of getting out of this situation? 
+ 
+3. What happens when they arrest you? 
+ 
+4. How do you go about proving that there were no drugs? 
+ 
+5. Do you have an attorney who can help me? 
+ 
+Thanks 
+ 
+Edit: 
+ 
+Thank you all so much for your responses. This has been very helpful as I'm trying to figure out how best to proceed. 
+```
 
 `Opinion Text: Recycling is bad for the world.`
+
+```
+It takes a lot of energy to recycle and it creates more waste than it saves. 
+ 
+I think that recycling should be banned because we are destroying our planet with it. 
+ 
+Edit: Thanks everyone who has given me some good arguments against recycling. 
+ 
+Edit 2: I'm not saying that people shouldn't recycle; it's just that they need to do so in an environmentally friendly way.
+```
 
 ### Amazon Reviews
 
 The `Reviews` tag can be used to generate Amazon reviews at an optional specified rating or starting text.
 
-`Reviews`
-
 `Reviews Rating: 1.0`
 
-`Reviews Rating: 5.0\n\nThis sucks`
+```
+I bought this book because it was recommended by a friend. It is not worth the money. The author has no credentials and his writing style is very poor.
+```
 
+`Reviews Rating: 5.0\n\nI died`
+
+```
+a little inside when I saw the first page of this book. It was so beautiful and it made me feel like I could do anything. But then I read on to see what happened next. And there were no more pages. The book just stopped. No epilogue, nothing. Just an abrupt ending. I'm not sure if it's because there's another one coming out or what, but that's how I feel. It's almost as though she got tired of writing about her life in New York City and decided that she'd write something else instead.
+```
 
 ## Notes
 
@@ -122,6 +166,7 @@ The `Reviews` tag can be used to generate Amazon reviews at an optional specifie
 ## TODO
 
 * Support/Test the 512-length CTRL model.
+* Support/Test domain detection.
 
 ## Maintainer/Creator
 
