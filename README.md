@@ -29,7 +29,7 @@ gcloud compute instances create ctrl \
 
 You can view the created instance, Start/Stop it, and delete it, in the [Google Compute Engine](https://console.cloud.google.com/compute/instances) dashboard.
 
-Once created (after waiting a bit for the GPU drivers to install), SSH into the instance. (recommended way to do is via the gcloud command created from the SSH dropdown, which will look like:
+Once created (after waiting a bit for the GPU drivers to install), SSH into the instance. The recommended way to do is via the `gcloud` command created from the SSH dropdown in the GCE dashboard, which will look like:
 
 ```sh
 gcloud beta compute --project "<PROJECT ID>" ssh --zone "us-central1-c" "ctrl"
