@@ -1,15 +1,15 @@
 # Install and Use CTRL on Google Compute Engine
 
-A script + guide on how to set up a virtual machine on [Google Compute Engine](https://cloud.google.com/compute/) capable of running and use [Salesforce](https://www.salesforce.com)'s very large text-generating model [CTRL](https://github.com/salesforce/ctrl) to generate high-qualtity text based on conditional parameters.
+Scripts + guides on how to set up a virtual machine on [Google Compute Engine](https://cloud.google.com/compute/) capable of running and use [Salesforce](https://www.salesforce.com)'s very large text-generating model [CTRL](https://github.com/salesforce/ctrl) to generate high-quality text based on conditional parameters.
 
 ## Machine Setup Instructions
 
-This machine is the minimum configuration powerful enough to run CTRL without going out-of-memory (P100 GPU, 8 vCPU, 30 GB RAM, preemptible). With this configuration, having the VM up will cost **$0.51/hr**.
+The VM is the minimum configuration powerful enough to run CTRL without going out-of-memory (P100 GPU, 8 vCPU, 30 GB RAM, preemptible). With this configuration, having the VM up will cost **$0.51/hr**.
 
 1. Make sure `gcloud` is set up on your local computer and up-to-date (can update via `gcloud components update`).
 2. Make sure your Google Compute Engine project tied to your local computer's `gcloud` has enough [quota](https://console.cloud.google.com/iam-admin/quotas) in the `us-central-1` region (8 CPUs and 1 P100; these should be available by default, but request more quota if they aren't)
 3. Make sure your GCE project has billing set up.
-4. On your local computer, run this `gcloud` command which creates a VM with the specs noted above:
+4. On your local computer, run this `gcloud` command in a terminal which creates a VM with the specs noted above:
 
 ```sh
 gcloud compute instances create ctrl \
@@ -56,7 +56,7 @@ You **must** include a control code with each interactive prompt. You can see ho
 
 ### Links
 
-The `Links` control code allows you to specify a URL and have the model attempt to extrapolate the corresponding article. Examples:
+The `Links` control code allows you to specify a URL and/or a prompt text and have the model attempt to extrapolate the corresponding article. Examples:
 
 `Links https://www.buzzfeednews.com/article/annehelenpetersen/jeremy-renner-app-trolling-career-hurt-locker-avengers`
 
