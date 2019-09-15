@@ -4,11 +4,12 @@ A script + guide on how to set up a machine on Google Compute Engine capable of 
 
 ## Machine Setup Instructions
 
-This machine is the minimum configuration powerful enough to run CTRL without going out-of-memory (P100 GPU, 8 vCPU, 30 GB RAM, preemtible). With this configuration, having the VM up will cost **$0.51/hr**.
+This machine is the minimum configuration powerful enough to run CTRL without going out-of-memory (P100 GPU, 8 vCPU, 30 GB RAM, preemptible). With this configuration, having the VM up will cost **$0.51/hr**.
 
 1. Make sure `gcloud` is set up on your local computer and up-to-date (can update via `gcloud components update`).
 2. Make sure your Google Compute Engine project tied to your local computer's `gcloud` has enough quota in the `us-central-1` region (8 CPUs and 1 P100; these should be available by default, but request more quota if they aren't)
-3. On your local computer, run this `gcloud` command which creates a VM with the specs noted above:
+3. Make sure your GCE project has billing set up.
+4. On your local computer, run this `gcloud` command which creates a VM with the specs noted above:
 
 ```sh
 gcloud compute instances create ctrl \
@@ -24,7 +25,7 @@ gcloud compute instances create ctrl \
   
 ```
 
-You can view the created instance, turn it on/off, and delete it, in the [Google Compute Engine](https://console.cloud.google.com/compute/instances) dashboard.
+You can view the created instance, Start/Stop it, and delete it, in the [Google Compute Engine](https://console.cloud.google.com/compute/instances) dashboard.
 
 Once created (after waiting a bit for the GPU drivers to install), SSH into the instance. (recommended way to do is via the gcloud command created from the SSH dropdown, which will look like:
 
@@ -32,16 +33,14 @@ Once created (after waiting a bit for the GPU drivers to install), SSH into the 
 gcloud beta compute --project "<PROJECT ID>" ssh --zone "us-central1-c" "ctrl"
 ```
 
-Download and run the `install_gce.sh` script from this repo via:
+Download and run the `install_gce.sh` [script](https://github.com/minimaxir/ctrl-gce/blob/master/install_gce.sh) from this repo via:
 
 ```sh
 curl -O -s https://raw.githubusercontent.com/minimaxir/ctrl-gce/master/install_gce.sh
 sudo sh install_gce.sh
 ```
 
-You can see what the script does by looking at it in this repo.
-
-You're done!
+You're done! Make sure to Stop the instance in the GCE dashboard when you are finished generating text!
 
 ## Using CTRL
 
@@ -57,7 +56,7 @@ You **must** include a control code with each interactive prompt. You can see ho
 
 ### Links
 
-The `Links` control code allows you to specify a URL and generate text from it. Examples:
+The `Links` control code allows you to specify a URL and have the model attempt to extrapolate the corresponding article. Examples:
 
 `Links https://www.buzzfeednews.com/article/annehelenpetersen/jeremy-renner-app-trolling-career-hurt-locker-avengers`
 

@@ -2,10 +2,10 @@
 git clone https://github.com/salesforce/ctrl.git
 mv ctrl/* .
 
-# cython is needed to compile fastBPE
+# Cython is needed to compile fastBPE
 sudo pip install Cython
 
-# Patch the newly-installed TensorFlow
+# Patch the TensorFlow estimator package
 FILE="/usr/local/lib/python2.7/dist-packages/tensorflow_estimator/python/estimator/keras.py"
 sudo patch -b "$FILE" estimator.patch
 sudo awk 'NR==24{print "import tensorflow as tf"}7' "$FILE" > /tmp/out && sudo mv /tmp/out "$FILE"
