@@ -16,5 +16,11 @@ cd fastBPE
 sudo python setup.py install
 cd ..
 
+if [ "$1" == "512" ]; then
+    URL = "gs://sf-ctrl/seqlen512_v1.ckpt/"
+else
+    URL = "gs://sf-ctrl/seqlen256_v1.ckpt/"
+fi
+
 # Copy model
-gsutil -m cp -r gs://sf-ctrl/seqlen256_v1.ckpt/ .
+gsutil -m cp -r $URL .
