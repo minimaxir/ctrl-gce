@@ -37,7 +37,7 @@ Once created (after waiting a bit for the GPU drivers to install), SSH into the 
 gcloud beta compute --project "<PROJECT ID>" ssh --zone "us-central1-c" "ctrl"
 ```
 
-Download and run the `install_gce.sh` [script](https://github.com/minimaxir/ctrl-gce/blob/master/install_gce.sh) from this repo via:
+While SSHed into the VM you created, download and run the `install_gce.sh` [script](https://github.com/minimaxir/ctrl-gce/blob/master/install_gce.sh) from this repo via:
 
 ```sh
 curl -O -s https://raw.githubusercontent.com/minimaxir/ctrl-gce/master/install_gce.sh
@@ -48,7 +48,7 @@ You're done! Make sure to Stop the instance in the GCE dashboard when you are fi
 
 ## Using CTRL
 
-For basic usage, running the command below will load the model and eventually start an interactive prompt.
+For basic usage, running the command below in the VM will load the model and eventually start an interactive prompt.
 
 ```sh
 sudo python generation.py --model_dir seqlen256_v1.ckpt/
