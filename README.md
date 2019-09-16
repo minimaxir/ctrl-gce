@@ -4,12 +4,14 @@
 
 Scripts + guides on how to set up a virtual machine on [Google Compute Engine](https://cloud.google.com/compute/) capable of running and using [Salesforce](https://www.salesforce.com)'s very large text-generating model [CTRL](https://github.com/salesforce/ctrl) to generate high-quality text based on conditional parameters.
 
+The CTRL model is so large (12 GB on disk, 15.5 GB GPU VRAM when loaded, even more system RAM during runtime) that it will currently not fit into a free Colaboratory or Kaggle Notebook. Therefore, this setup is necessary to play with the model for now.
+
 ## Machine Setup Instructions
 
-The VM is the minimum configuration powerful enough to run CTRL without going out-of-memory (P100 GPU, 8 vCPU, 30 GB RAM, preemptible). With this configuration, having the VM up will cost **$0.51/hr**.
+The VM these instructions create is the minimum, lowest-cost configuration powerful enough to run CTRL without going out-of-memory (P100 GPU, 8 vCPU, 30 GB RAM, preemptible). With this configuration, having the VM up will cost **$0.51/hr**.
 
-1. Make sure `gcloud` is set up on your local computer and up-to-date (can update via `gcloud components update`).
-2. Make sure your Google Compute Engine project tied to your local computer's `gcloud` has enough [quota](https://console.cloud.google.com/iam-admin/quotas) in the `us-central-1` region (8 CPUs and 1 P100; these should be available by default, but request more quota if they aren't)
+1. Make sure the `gcloud` command line tool is [set up](https://cloud.google.com/sdk/gcloud/) on your local computer and up-to-date (can update via `gcloud components update`).
+2. Make sure your Google Cloud Platform project tied to your local computer's `gcloud` has enough [quota](https://console.cloud.google.com/iam-admin/quotas) in the `us-central-1` region (8 CPUs and 1 P100; these should be available by default, but request more quota if they aren't)
 3. Make sure your GCE project has billing set up.
 4. On your local computer, run this `gcloud` command in a terminal which creates a VM with the specs noted above:
 
@@ -52,7 +54,7 @@ For basic usage, running the command below will load the model and eventually st
 sudo python generation.py --model_dir seqlen256_v1.ckpt/
 ```
 
-While generating, you can specify a KeyboardInterrupt to stop generation (Ctrl+C on macOS). It's also recommended to clear the terminal (CMD+K on macOS) occasionally.
+While generating, you can specify a KeyboardInterrupt to stop generation (Ctrl+C on macOS). It's also recommended to clear the terminal (CMD+K on macOS) occasionally as the entire generated text will be output after each added token.
 
 You **must** include a control code with each interactive prompt. You can see how the control codes are used in the original paper, or refer to the following examples:
 
@@ -158,7 +160,7 @@ a little inside when I saw the first page of this book. It was so beautiful and 
 
 ### Command Line Arguments
 
-Unlike other text-generating apps, CTRL has a default `temperature` of 0, meaning the model chooses the best guess when possible (before repetition `penalty` is applied). Some CLI arguments you can change:
+Unlike other text-generating apps, CTRL has a default `temperature` of 0, meaning the model chooses the best guess when possible (before repetition `penalty` is applied). Some CLI arguments you can add:
 
 * `--generate_num` — Number of tokens to generate (default: 256, can exceed the model window)
 * `--temperature` — Controls model creativity (default: 0, may want to increase to 0.2)
