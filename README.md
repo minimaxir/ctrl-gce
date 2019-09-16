@@ -104,7 +104,7 @@ A: 0
 
 ### Reddit Subreddits
 
-Each Reddit subreddit has a different control code, see the [bottom of the paper](https://einstein.ai/presentations/ctrl.pdf) for a full list. You can optionally specify the Title or the self-post Text body. Examples:
+Each Reddit subreddit has a different control code; see the [bottom of the paper](https://einstein.ai/presentations/ctrl.pdf) for a full list. You can optionally specify the Title or the self-post Text body. Examples:
 
 `Legal Title: [FL] Is it legal to get into legal trouble?`
 
@@ -172,7 +172,7 @@ Unlike other text-generating apps, CTRL has a default `temperature` of 0, meanin
 
 * Since the model is huge, generation is *very* slow: about 2 tokens per second with the configuration above. (therefore, it takes about 2 minutes for a full generation with default parameters)
 * The BPEs CTRL uses are "longer" that those used in GPT-2. As a result, a 256-token generation in CTRL is about the same decoded length as a 1024-token generation in GPT-2.
-* When using the `Links` control code, keep in mind that code is conditioned on [OpenWebText](https://github.com/jcpeterson/openwebtext), which is conditioned on Reddit data. Therefore, there's a bias toward English websites and Reddit-friendly content. [Here's a quick spreadsheet](https://docs.google.com/spreadsheets/d/1O3_1RTnGn_ozcvf6eDLpsmf8ElxIqHg0FKbVfDxGS88/edit?usp=sharing) of the most popular TLDs on Reddit, sans some obvious image-oriented websites.
+* When using the `Links` control code, keep in mind that code is conditioned on [OpenWebText](https://github.com/jcpeterson/openwebtext), which is conditioned on Reddit data. Therefore, there's a bias toward English websites and Reddit-friendly content. [Here's a quick spreadsheet](https://docs.google.com/spreadsheets/d/1O3_1RTnGn_ozcvf6eDLpsmf8ElxIqHg0FKbVfDxGS88/edit?usp=sharing) of the most popular domains on Reddit, sans some obvious image-oriented websites.
 * If CTRL gets confused by the `Links` URL, it tends to fall back to a more general news-oriented output.
 * It is recommended to use Google Compute Engine (even if you aren't following this guide) as the model itself is hosted in Google Cloud Storage and thus it's relatively fast to transfer to a VM (>100 Mb/s), and also lowers the cost for Salesforce.
 
