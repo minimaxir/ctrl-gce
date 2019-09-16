@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Gather CTRL and copy to working directory
 git clone https://github.com/salesforce/ctrl.git
 mv ctrl/* .
@@ -16,8 +18,8 @@ cd fastBPE
 sudo python setup.py install
 cd ..
 
-URL=""
-if [ "$1" == "512" ]; then
+if [ "$1" = "512" ]
+then
     URL="gs://sf-ctrl/seqlen512_v1.ckpt/"
 else
     URL="gs://sf-ctrl/seqlen256_v1.ckpt/"
