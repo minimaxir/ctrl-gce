@@ -44,6 +44,12 @@ curl -O -s https://raw.githubusercontent.com/minimaxir/ctrl-gce/master/install_g
 sudo sh install_gce.sh
 ```
 
+If you'd like to use the model with a sequence length of 512, you can pass `512` as an argument to the install script, e.g.
+
+```sh
+sudo sh install_gce.sh 512
+```
+
 You're done! Make sure to Stop the instance in the GCE dashboard when you are finished generating text!
 
 ## Using CTRL
