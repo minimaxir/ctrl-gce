@@ -60,6 +60,12 @@ For basic usage, running the command below in the VM will load the model and eve
 sudo python generation.py --model_dir seqlen256_v1.ckpt/
 ```
 
+If you are using the 512-length model, instead you would do:
+
+```sh
+sudo python generation.py --model_dir seqlen512_v1.ckpt/ --generate_num 512
+```
+
 While generating, you can specify a KeyboardInterrupt to stop generation (Ctrl+C on macOS). It's also recommended to clear the terminal (CMD+K on macOS) occasionally as the entire generated text will be output after each added token.
 
 You **must** include a control code with each interactive prompt. You can see how the control codes are used in the original paper, or refer to the following examples:
@@ -184,7 +190,6 @@ Unlike other text-generating apps, CTRL has a default `temperature` of 0, meanin
 
 ## TODO
 
-* Support/Test the 512-length CTRL model.
 * Support/Test domain detection.
 
 ## Maintainer/Creator
