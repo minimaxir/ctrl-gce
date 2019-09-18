@@ -164,10 +164,10 @@ The `Reviews` tag can be used to generate Amazon reviews at an optional specifie
 I bought this book because it was recommended by a friend. It is not worth the money. The author has no credentials and his writing style is very poor.
 ```
 
-`Reviews Rating: 5.0\n\nI died`
+`Reviews Rating: 5.0`
 
 ```
-a little inside when I saw the first page of this book. It was so beautiful and it made me feel like I could do anything. But then I read on to see what happened next. And there were no more pages. The book just stopped. No epilogue, nothing. Just an abrupt ending. I'm not sure if it's because there's another one coming out or what, but that's how I feel. It's almost as though she got tired of writing about her life in New York City and decided that she'd write something else instead.
+I died a little inside when I saw the first page of this book. It was so beautiful and it made me feel like I could do anything. But then I read on to see what happened next. And there were no more pages. The book just stopped. No epilogue, nothing. Just an abrupt ending. I'm not sure if it's because there's another one coming out or what, but that's how I feel. It's almost as though she got tired of writing about her life in New York City and decided that she'd write something else instead.
 ```
 
 ### Command Line Arguments
